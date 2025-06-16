@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <div className="navbar bg-base-100 shadow-sm px-10" >
   <div className="navbar-start">
-    <Link to={'/'} className="font-leckerli flex gap-4 tracking-wide text-2xl"> <img src="./public/favicon-32x32.png" alt="" /> Writely</Link>
+    <Link to={'/'} className="font-leckerli flex gap-4 tracking-wide text-2xl"> <img src="/favicon-32x32.png" alt="" /> Writely</Link>
   </div>
   <div className="navbar-end">
     <button onClick={()=>{
