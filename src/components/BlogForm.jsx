@@ -72,6 +72,7 @@ if(blog && btnValue === "Update"){
 
     <form onSubmit={add} className='flex gap-6 p-6 flex-col items-center'>
       <input
+      required
         type="text"
         placeholder="Title..."
         className="input"
@@ -86,6 +87,7 @@ if(blog && btnValue === "Update"){
         onChange={(e) => setAuthor(e.target.value)}
       />
       <textarea
+      required
         className="textarea"
         value={content}
         onChange={(e) => setContent(e.target.value)}
