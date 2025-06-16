@@ -32,7 +32,8 @@ export default function BlogForm({btnValue, blog}) {
   const add = (e) => {
     e.preventDefault()
 
-    if(btnValue === "Update")
+if(blog){
+      if(btnValue === "Update")
     {
       updateBlog(blog.id,{...blog, title:title, blog: content,author:author})
 
@@ -49,6 +50,7 @@ export default function BlogForm({btnValue, blog}) {
     else{
       addBlog({ title, author, blog: content })
     }
+  }
 
     
     setContent("")
@@ -71,6 +73,7 @@ export default function BlogForm({btnValue, blog}) {
 
     <form onSubmit={add} className='flex gap-6 p-6 flex-col items-center'>
       <input
+        required
         type="text"
         placeholder="Title..."
         className="input"
@@ -85,12 +88,19 @@ export default function BlogForm({btnValue, blog}) {
         onChange={(e) => setAuthor(e.target.value)}
       />
       <textarea
+        required
         className="textarea"
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Content"
       ></textarea>
-      <button type='submit' className="btn btn-soft btn-success">{btnValue}</button>
+      <div className='flex gap-6'>
+        <button type='submit' className="btn btn-soft btn-success">{btnValue}</button>
+        <button onClick={()=>{
+            const navigate = useNavigate()
+            navigate('/')
+        }} className="btn btn-soft btn-error">Cancel</button>
+      </div>
     </form>
     </>
   )
