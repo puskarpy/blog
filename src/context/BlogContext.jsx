@@ -21,9 +21,7 @@ export const BlogProvider = ({children}) => {
      const [blogs, setBlogs] = useState([])
     
       const addBlog = (blog) => {
-        if(blog){ 
         setBlogs((prev) => [{id:Date.now(),...blog},...prev])
-        }
       }
     
       const updateBlog = (id, blog) => {
@@ -47,8 +45,7 @@ export const BlogProvider = ({children}) => {
         }
       }, [])
     
-      useEffect(() => {
-        
+      useEffect(() => {      
         localStorage.setItem("blogs", JSON.stringify(blogs))
     
       }, [blogs])

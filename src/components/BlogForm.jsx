@@ -32,9 +32,7 @@ export default function BlogForm({btnValue, blog}) {
   const add = (e) => {
     e.preventDefault()
 
-if(blog){
-      if(btnValue === "Update")
-    {
+if(blog && btnValue === "Update"){
       updateBlog(blog.id,{...blog, title:title, blog: content,author:author})
 
       setShowToast(true)
@@ -48,9 +46,10 @@ if(blog){
       return
     }
     else{
+      console.log("Add blog called with:", { title, blog: content });
+      
       addBlog({ title, author, blog: content })
     }
-  }
 
     
     setContent("")
@@ -94,8 +93,7 @@ if(blog){
       ></textarea>
       <div className='flex gap-6'>
         <button type='submit' className="btn btn-soft btn-success">{btnValue}</button>
-        <button onClick={()=>{
-            const navigate = useNavigate()
+        <button type='button' onClick={()=>{
             navigate('/')
         }} className="btn btn-soft btn-error">Cancel</button>
       </div>

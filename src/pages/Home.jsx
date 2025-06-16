@@ -6,7 +6,10 @@ export default function Home() {
 
   const {blogs} = useBlog()
     
-  return (
+  let content;
+  if(blogs.length > 0){
+
+    content = (
      <div className='p-6 bg-neutral-900'>
       <h1 className='text-4xl font-bold font-leckerli mb-10'>Blogs</h1>
       <div className='flex gap-4 py-6 px-4 flex-wrap justify-center '>
@@ -18,6 +21,23 @@ export default function Home() {
         ))}
       </div>
       </div>
+    )
+
+  }
+  else{
+      content = (
+     <div className='p-6 bg-neutral-900'>
+      <h1 className='text-4xl font-bold font-leckerli mb-10'>Blogs</h1>
+      <div className='font-extralight tracking-wide text-neutral-300 '>
+        No Blogs to show here.. Create a new Blog.
+      </div>
+      </div>
+    )
+  }
+  return (
+<>
+{content}
+</>
   )
 }
 

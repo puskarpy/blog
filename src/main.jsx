@@ -8,6 +8,7 @@ import Home from './pages/Home.jsx'
 import AddBlog from './pages/AddBlog.jsx'
 import EditBlog from './pages/EditBlog.jsx'
 import BlogPage from './pages/BlogPage.jsx'
+import { BlogProvider } from './context/BlogContext.jsx'
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <BlogProvider>
     <RouterProvider router={router} />
+    </BlogProvider>
   </StrictMode>,
 )
