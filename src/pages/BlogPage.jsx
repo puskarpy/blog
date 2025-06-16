@@ -12,7 +12,7 @@ export default function BlogPage() {
     if(!blog) return <Navigate to={'/'}/>
 
   return (
-        <div className="max-w-5xl mx-auto p-6 flex flex-col gap-6">
+        <div className="max-w-5xl mx-auto p-6 flex flex-col gap-6 bg-neutral-900">
       <div>
           <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
           <p className="text-md text-neutral-200">Author: {blog.author || "Anonymous"}</p>
